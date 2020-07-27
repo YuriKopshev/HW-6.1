@@ -11,11 +11,7 @@ public class StatsService {
     }
 
     public int CalcMediumSell(int[] array) {
-        int sum = 0;
-        for (int i = 0; i < array.length; i++) {
-            int count = array[i];
-            sum += count;
-        }
+        int sum = CalcSumSell(array);
         return sum / 12;
     }
 
@@ -47,12 +43,7 @@ public class StatsService {
 
     public int CalcMonthBelowMedium(int[] array) {
         int monthCount = 0;
-        int sum = 0;
-        for (int i = 0; i < array.length; i++) {
-            int count = array[i];
-            sum += count;
-        }
-        int medSum = sum / 12;
+        int medSum = CalcMediumSell(array);
         for (int arr : array) {
             if (arr < medSum) {
                 monthCount++;
@@ -63,12 +54,7 @@ public class StatsService {
 
     public int CalcMonthHigherMedium(int[] array) {
         int monthCount = 0;
-        int sum = 0;
-        for (int i = 0; i < array.length; i++) {
-            int count = array[i];
-            sum += count;
-        }
-        int medSum = sum / 12;
+        int medSum = CalcMediumSell(array);
         for (int arr : array) {
             if (arr > medSum) {
                 monthCount++;
